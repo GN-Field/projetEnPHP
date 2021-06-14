@@ -2,7 +2,7 @@
 function dbConnect(){
         try {
             $db = new PDO(
-                "mysql:host=localhost;dbname=siteannoncesgratuites;charset=utf8","root","",
+                "mysql:host=localhost;dbname=siteannonce;charset=utf8","root","",
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION) 
             );    
         } catch (Exception $sms){    

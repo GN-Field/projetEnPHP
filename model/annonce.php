@@ -2,20 +2,20 @@
 
     // CREATE annonce
     // ****************
-    function createAnnonce($titre, $dateDepot, $prix, $etatAnnonce, $description){ //$idCategorie, $idCompteUtilisateur){
+    function createAnnonce($titre, $dateDepot, $prix, $etatAnnonce, $description, $idCategorie, $idCompteUtilisateur){
         try {
             $db = dbConnect();
-            $mysql = "INSERT INTO annonce(titre, date_depot, prix, etat_annonce, description, id_categorie, compteutilisateur_id)";
-            $mysql .= " VALUES(:titre, :date_depot, :prix, :etat_annonce, :description, :id_categorie, :compteutilisateur_id)";
-            $requete = $db->prepare($mysql);
-            $requete->bindValue(":titre", $titre, PDO::PARAM_STR);
-            $requete->bindValue("date_depot", $dateDepot, PDO::PARAM_STR);
-            $requete->bindValue(":prix", $prix, PDO::PARAM_STR);
-            $requete->bindValue(":etat_annonce", $etatAnnonce, PDO::PARAM_BOOL);
-            $requete->bindValue(":description", $description, PDO::PARAM_STR);
-            // $requete->bindValue("id_categorie", $idCategorie, PDO::PARAM_INT);
-            // $requete->bindValue(":compteutilisateur_id", $idCompteUtilisateur, PDO::PARAM_INT);
-            $requete->execute();    
+            $mysql = "INSERT INTO annonce(titre, dateDepot, prix, etatAnnonce, description, idCategorie, idCompteUtilisateur)";
+            $mysql .= " VALUES(:titre, :dateDepot, :prix, :etatAnnonce, :description, :idCategorie, :idCompteUtilisateur)";
+            $req = $db->prepare($mysql);
+            $req->bindValue(":titre", $titre, PDO::PARAM_STR);
+            $req->bindValue("dateDepot", $dateDepot, PDO::PARAM_STR);
+            $req->bindValue(":prix", $prix, PDO::PARAM_STR);
+            $req->bindValue(":etatAnnonce", $etatAnnonce, PDO::PARAM_BOOL);
+            $req->bindValue(":description", $description, PDO::PARAM_STR);
+            $req->bindValue(":idCategorie", $idCategorie, PDO::PARAM_INT);
+            $req->bindValue(":idCompteUtilisateur", $idCompteUtilisateur, PDO::PARAM_INT);
+            $req->execute();    
         } catch (Exception $sms) {
             echo "Ne pas pouvoir faire cette commande.", $sms->getMessage()." ".$sms->getFile()." ".$sms->getLine();
         }
@@ -27,9 +27,9 @@
     function getAnnonces(){
         try {
             $db = dbConnect();
-            $requete = $db->query("SELECT * FROM annonce ORDER BY id");
-            $reponse = $requete->fetchAll();
-            $requete->closeCursor();
+            $req = $db->query("SELECT * FROM annonce ORDER BY id");
+            $reponse = $req->fetchAll();
+            $req->closeCursor();
         } catch (Exception $sms) {
             echo "Ne pas pouvoir faire cette commande.", $sms->getMessage()." ".$sms->getFile()." ".$sms->getLine();
         }
@@ -39,9 +39,9 @@
     function getAnnonce($idAnnonce){
         try {
             $db = dbConnect();
-            $requete = $db->query("SELECT * FROM annonce WHERE id = $idAnnonce");
-            $reponse = $requete->fetch();
-            $requete->closeCursor();
+            $req = $db->query("SELECT * FROM annonce WHERE id = $idAnnonce");
+            $reponse = $req->fetch();
+            $req->closeCursor();
         } catch (Exception $sms) {
             echo "Ne pas pouvoir faire cette commande.", $sms->getMessage()." ".$sms->getFile()." ".$sms->getLine();
         }
@@ -58,14 +58,14 @@
             $mysql .= " SET annonce.titre = :titre, annonce.date_depot = :date_depot, annonce.prix = :prix";
             $mysql .= " annonce.etat_annonce = :etat_annonce, annonce.description = :description";
             $mysql .= " WHERE annonce.id = :idAnnonce";
-            $requete = $db->prepare($mysql);
-            $requete->bindValue(":idAnnonce", $idAnnonce, PDO::PARAM_INT);
-            $requete->bindValue(":titre", $titre, PDO::PARAM_STR);
-            $requete->bindValue(":date_depot", $dateDepot, PDO::PARAM_STR);
-            $requete->bindValue(":prix", $prix, PDO::PARAM_STR);
-            $requete->bindValue(":etat_annonce", $etatAnnonce, PDO::PARAM_BOOL);
-            $requete->bindValue(":description", $description, PDO::PARAM_STR);
-            $requete->execute();
+            $req = $db->prepare($mysql);
+            $req->bindValue(":idAnnonce", $idAnnonce, PDO::PARAM_INT);
+            $req->bindValue(":titre", $titre, PDO::PARAM_STR);
+            $req->bindValue(":date_depot", $dateDepot, PDO::PARAM_STR);
+            $req->bindValue(":prix", $prix, PDO::PARAM_STR);
+            $req->bindValue(":etat_annonce", $etatAnnonce, PDO::PARAM_BOOL);
+            $req->bindValue(":description", $description, PDO::PARAM_STR);
+            $req->execute();
         } catch (Exception $sms) {
             echo "Ne pas pouvoir faire cette commande.", $sms->getMessage()." ".$sms->getFile()." ".$sms->getLine();
         }
