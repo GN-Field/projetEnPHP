@@ -51,9 +51,15 @@
     function updateCompteDroit($idCompteDroit, $nomDroit, $paramDroit, $valeur, $idCompteUtilisateur){
         try {
             $db = dbConnect();
-            $mysql = "UPDATE comptedroit SET comptedroit.nomDroit = :nomDroit, comptedroit.paramDroit = :paramDroit";
-            $mysql .= " comptedroit.valeur = :valeur, comptedroit.idCompteUtilisateur = :idCompteUtilisateur)";
-            $mysql .= " WHERE comptedroit.id = :idComptedroit";
+            $mysql = "UPDATE 
+                        comptedroit 
+                    SET 
+                        comptedroit.nomDroit = :nomDroit, 
+                        comptedroit.paramDroit = :paramDroit,
+                        comptedroit.valeur = :valeur, 
+                        comptedroit.idCompteUtilisateur = :idCompteUtilisateur
+                    WHERE
+                        comptedroit.id = :idComptedroit";
             $req = $db->prepare($mysql);
             $req->bindValue(":idCompteDroit", $idCompteDroit, PDO::PARAM_INT);
             $req->bindValue(":nomDroit", $nomDroit, PDO::PARAM_STR);

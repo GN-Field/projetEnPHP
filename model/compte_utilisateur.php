@@ -55,10 +55,19 @@
     function updateCompteUtilisateur($idCompteUtilisateur, $email, $motsDePasses, $nomAffichage, $nom, $prenom, $photo, $compteActif, $telephone){
         try {
             $db = dbConnect();
-            $mysql = "UPDATE compteutilisateur";
-            $mysql .= " SET compteutilisateur.email = :email, compteutilisateur.motsDePasses = :motsDePasses, compteutilisateur.nomAffichage = :nomAffichage, compteutilisateur.nom = :nom";
-            $mysql .= " compteutilisateur.prenom = :prenom, compteutilisateur.photo = :photo, compteutilisateur.compteActif = :compteActif, compteutilisateur.telephone = :telephone";
-            $mysql .= " WHERE compteutilisateur.id = :idCompteUtilisateur";
+            $mysql = "UPDATE 
+                        compteutilisateur
+                      SET 
+                        compteutilisateur.email = :email, 
+                        compteutilisateur.motsDePasses = :motsDePasses,
+                        compteutilisateur.nomAffichage = :nomAffichage,
+                        compteutilisateur.nom = :nom,
+                        compteutilisateur.prenom = :prenom,
+                        compteutilisateur.photo = :photo, 
+                        compteutilisateur.compteActif = :compteActif, 
+                        compteutilisateur.telephone = :telephone
+                      WHERE 
+                        compteutilisateur.id = :idCompteUtilisateur";
             $req = $db->prepare($mysql);
             $req->bindValue(":idCompteUtilisateur", $idCompteUtilisateur, PDO::PARAM_INT);
             $req->bindValue(":email", $email, PDO::PARAM_STR);
@@ -68,9 +77,10 @@
             $req->bindValue(":prenom", $prenom, PDO::PARAM_STR);
             $req->bindValue(":photo", $photo, PDO::PARAM_STR);
             $req->bindValue(":compteActif", $compteActif, PDO::PARAM_INT);
-            $req->bindValue(":telephone", $telephone, PDO::PARAM_INT);
+            $req->bindValue(":telephone", $telephone, PDO::PARAM_STR);
             $req->execute();
         } catch (Exception $sms) {
+            // echo $mysql;
             echo "Ne pas pouvoir faire cette commande.", $sms->getMessage()." ".$sms->getFile()." ".$sms->getLine();
         }
     }
