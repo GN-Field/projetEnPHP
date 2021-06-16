@@ -31,7 +31,7 @@
 
     // TEST UPDATE compte utilisateur
     // ******************************
-    // updateCompteUtilisateur(3, "456@gmail.com", "987654321", "toti", "to", "ti", "photo test", 1, 1212121212);
+    // updateCompteUtilisateur(3, "456@gmail.com", "987654321", "toti", "to", "ti", "photo test", 1, "1212121212");
 
     // TEST DELETE compte utilisateur
     // ******************************
@@ -56,10 +56,10 @@
 
     // TEST UPDATE compte droit
     // ************************
-    // updateCompteDroit(3, "respect2", "test2", 300, 3);
+    // updateCompteDroit(1, "respect2", "test2", 300, 1);
 
     // TEST DELETE compte droit
     // ************************
-    deleteCompteDroit(3);
+    // deleteCompteDroit(3);
 
 ?>
