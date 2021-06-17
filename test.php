@@ -86,4 +86,30 @@
     // TEST DELETE categorie
     // *********************
     // deleteCategorie(3);
+
+
+    // *****************************
+    require "model/attribut.php";
+    // *****************************
+
+    // TEST CREATE attribut
+    // ********************
+    // createAttribut("durable", 102, 10011, "sans unite");
+
+    // TEST READ attribut
+    // ******************
+    // $test = getAttributs();
+    // $test = getAttribut(2);
+    // echo "<pre>";
+    // var_dump($test);
+    // echo "</pre>";
+
+    // TEST UPDATE attribut
+    // ********************
+    // updateAttribut(2, "alimentaire", 103, 1001, "sans unite");
+
+    // TEST DELETE attribut
+    // ********************
+    // deleteAttribut(3);
+
 ?>
