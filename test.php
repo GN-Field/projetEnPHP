@@ -62,4 +62,28 @@
     // ************************
     // deleteCompteDroit(3);
 
+
+    // ******************************
+    require "model/categorie.php";
+    // ******************************
+
+    // TEST CREATE categorie
+    // *********************
+    // createCategorie("fruit de mer", "poisson etc", 1, 003, 103);
+
+    // TEST READ categorie
+    // *******************
+    // $test = getCategories();
+    // $test = getCategorie(2);
+    // echo "<pre>";
+    // var_dump($test);
+    // echo "</pre>";
+
+    // TEST UPDATE categorie
+    // *********************
+    // updateCategorie(2, "viande blanc", "poulet", 1, 1, 102);
+
+    // TEST DELETE categorie
+    // *********************
+    // deleteCategorie(3);
 ?>

@@ -36,7 +36,7 @@
     function getCompteDroit($idCompteDroit){
         try {
             $db = dbConnect();
-            $req = $db->query("SELECT * FROM comptedroit ORDER BY id");
+            $req = $db->query("SELECT * FROM comptedroit WHERE id = $idCompteDroit");
             $reponse = $req->fetch();
             $req->closeCursor();
         } catch (Exception $sms) {
