@@ -11,7 +11,7 @@
             $req->bindValue(":titre", $titre, PDO::PARAM_STR);
             $req->bindValue("dateDepot", $dateDepot, PDO::PARAM_STR);
             $req->bindValue(":prix", $prix, PDO::PARAM_STR);
-            $req->bindValue(":etatAnnonce", $etatAnnonce, PDO::PARAM_BOOL);
+            $req->bindValue(":etatAnnonce", $etatAnnonce, PDO::PARAM_INT);
             $req->bindValue(":description", $description, PDO::PARAM_STR);
             $req->bindValue(":idCategorie", $idCategorie, PDO::PARAM_INT);
             $req->bindValue(":idCompteUtilisateur", $idCompteUtilisateur, PDO::PARAM_INT);

@@ -10,7 +10,23 @@
 
     // TEST CREATE annonce
     // *******************
-    // createAnnonce("citroen A8", "11-06-2021 00:00:00", 60000, 1, "lorem", 1, 1);
+    // createAnnonce("coca", "11-06-2021 00:00:00", 2, 1, "lorem", 1, 3);
+
+    // TEST READ annonce
+    // *****************
+    // $test = getAnnonces();
+    // $test = getAnnonce(5);
+    // echo "<pre>";
+    // var_dump($test);
+    // echo "</pre>";
+
+    // TEST UPDATE annonce
+    // *******************
+    // updateAnnonce(5, "7 ups", "11-06-2021 00:00:00", 2, 1, "lorem", 1, 3);
+
+    // TEST DELETE annonce
+    // *******************
+    // deleteAnnonce(5);
 
 
     // ***************************************
@@ -69,7 +85,7 @@
 
     // TEST CREATE categorie
     // *********************
-    // createCategorie("fruit de mer", "poisson etc", 1, 003, 103);
+    // createCategorie("vehicule", "voiture, velo, moto", 2, 004, 203);
 
     // TEST READ categorie
     // *******************
